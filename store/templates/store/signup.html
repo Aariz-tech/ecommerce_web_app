@@ -1,0 +1,60 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+	<div class="p-4 m-4">
+		<div class="col-lg-5 mx-auto border rounded pt-4">
+			<h3 class="alert alert-light border rounded">
+				Create An Account
+			</h3>
+			<form action="/signup/" method="POST">
+				{% csrf_token %}
+				{% if error %}
+
+				<div class="alert alert-danger" role="alert">
+					{{error}}
+					
+				</div>
+
+
+				{% endif %}
+
+
+
+				<div class="form-group">
+					 <label for="" class="form-label">First Name</label>
+    				<input type="text" value="{{value.first_name}}"  class="form-control" name="firstname" placeholder="">
+					
+				</div>
+				<div class="form-group">
+					 <label for="" class="form-label">Last Name</label>
+    				<input type="text" value="{{value.last_name}}" class="form-control" name="lastname" placeholder="">
+					
+				</div>
+				<div class="form-group">
+					 <label for="" class="form-label">Phone No</label>
+    				<input type="text" value="{{value.phone}}" class="form-control" name="phone" placeholder="1234567890">
+					
+				</div>
+				<div class="form-group">
+					 <label for="" class="form-label">Email</label>
+    				<input required type="email" value="{{value.email}}" class="form-control" name="email" placeholder="example@gmail.com" >
+					
+				</div>
+				<div class="form-group">
+					 <label for="" class="form-label">Password</label>
+    				<input type="password" class="form-control" name="password" required placeholder="********">
+					
+				</div>
+				<div class="form-group">
+					<input class="btn btn-sm btn-info" type="submit" value="Signup">
+					
+				</div>
+				
+			</form>
+		</div>
+		
+	</div>
+	
+</div>
+{% endblock %}
